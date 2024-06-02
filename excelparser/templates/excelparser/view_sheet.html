@@ -1,0 +1,23 @@
+<!-- templates/excelparser/view_sheet.html -->
+{% extends "base.html" %}
+{% block title %}Просмотр РПД{% endblock %}
+{% block content %}
+<h1 class="view__title">{{ filename }}</h1>
+<p class="back"><a href="{% url 'index' %}">← Назад</a></p>
+<h2 class="view__subtitle">Список листов</h2>
+<ul  class="view__list">
+    {% for sheet in sheet_names %}
+        <li class="view__item"><a href="{% url 'view_sheet' filename sheet %}">{{ sheet }}</a></li>
+    {% endfor %}
+</ul>
+<h2 class="view__subtitle">{{ current_sheet }}</h2>
+<table border="1">
+    {% for row in data %}
+        <tr>
+            {% for cell in row %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- templates/excelparser/index.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Просмотр РПД{% endblock %}
+
+{% block content %}
+<h1 class="rpd__title">Список РПД</h1>
+<ul class="rpd__list">{% for file in files %}
+        <li class="rpd__item"><a href="{% url 'view_file' file %}">{{ file }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

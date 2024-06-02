@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Просмотр РПД{% endblock %}</title>
+    <style>
+        /* montserrat-300 - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-300.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* montserrat-regular - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-regular.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* montserrat-500 - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-500.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* montserrat-600 - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-600.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* montserrat-700 - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-700.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        /* montserrat-800 - cyrillic_latin */
+        @font-face {
+            font-display: swap;
+            /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            src: url('../fonts/montserrat-v26-cyrillic_latin-800.woff2') format('woff2');
+            /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        ul li {
+            list-style: none;
+        }
+        .rpd__list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0;
+        }
+
+        .rpd__item {
+            text-decoration: none;
+            list-style: none;
+
+        }
+
+        .rpd__item a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+        }
+
+        input {
+            max-width: 400px;
+            display: block;
+        }
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #34495e;
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #1abc9c;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        /* Кнопки */
+        button, .button {
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        /* Формы */
+        form {
+            margin-bottom: 30px;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            width: auto;
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #16a085;
+        }
+
+        .container {
+            padding: 50px 50px;
+        }
+
+        .rpd__title {
+            font-size: 36px;
+        }
+
+        .view__title {
+            font-size: 36px;
+
+        }
+
+        .view__subtitle {
+            font-size: 32px;
+        }
+
+        .view__list {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .view__item {
+            font-size: 24px;
+
+        }
+
+        .view__item a {
+            text-decoration: none;
+            color: #000;
+            transition: 0.3s all;
+        }
+
+        .view__item a:hover, .rpd__item a:hover {
+            color: #616161;
+        }
+
+        .back a {
+            font-size: 24px;
+            text-decoration: none;
+            color: #000;
+        }
+            /* Стили для таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Стили для заголовка таблицы */
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        /* Стили для ячеек таблицы */
+        td, th {
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 24px;
+        }
+
+        /* Стили для основного контейнера */
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="header__title"> РПД 2023 года</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
